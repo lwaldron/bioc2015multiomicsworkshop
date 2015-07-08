@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+import(methods)
+import(GenomicRanges)
+import(Biobase)
