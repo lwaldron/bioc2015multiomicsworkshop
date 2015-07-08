@@ -72,7 +72,7 @@ blca <- getFirehoseData("BLCA", runDate=rundates[1], gistic2_Date=analysisdates[
           RPPA = TRUE, todir = NULL)
 ```
 
-Instead, we'll just load the ovarian cancer dataset from the
+Instead, we'll just load the acute myeloid leukema data from the
 bioc2015multiomicsworkshop for demonstration:
 
 ```{r}
