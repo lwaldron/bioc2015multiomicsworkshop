@@ -1,5 +1,9 @@
 ---
 title: "TCGAloading"
+vignette: >
+  %\VignetteIndexEntry{TCGAloading}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 author: "Marcel Ramos, Levi Waldron"
 date: "July 13, 2015"
 output: html_document
