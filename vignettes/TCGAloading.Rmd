@@ -174,23 +174,5 @@ dses
 ```{r}
 library(SummarizedExperiment)
 rnaseqSE <- makeSummarizedExperimentFromExpressionSet(rnaseq)
-rnaseqEset <- as("ExpressionSet", rnaseqSE)
-```
-
-```{r}
-library(SummarizedExperiment)
-SErnaseq <- makeSummarizedExperimentFromExpressionSet(rnaseq[1:100, ])
-```
-
-```{r}
-library(Homo.sapiens)
-duphandler=function(z) {
-  if (any(isd <- duplicated(z[, 1])))
-    return(z[!isd,,drop=FALSE])
-  z}
-entrez.symbol.map <- duphandler(select(Homo.sapiens, keytype="SYMBOL", keys = featureNames(eset), columns = c("SYMBOL","GENEID")))
-rnaseq2 <- rnaseq[1:100, ]
-featureNames(rnaseq2) <- entrez.symbol.map[1:100, 2]
-SErnaseq2 <- makeSummarizedExperimentFromExpressionSet(rnaseq2, 
-               geneRangeMapper("TxDb.Hsapiens.UCSC.hg19.knownGene", key="GENEID"))
+rnaseqSE
 ```
