@@ -348,14 +348,14 @@ ov
 ov@runDate<-rd  
 ov@gistic2Date<- ad
 ov
-save(ov, file="./data/ov.rda")
+#save(ov, file="./data/ov.rda")
 ```
 
 Extract each assay type as an "ExpressionSet" class. Note you can get the data (assayData), sample annoation (phenoData) and feature annotation (featureData) using the functions exprs(), pData(), fData() respectively. To get the row/col names, use sampleNames, featureNames
 
 
 ```{r loadOv, eval=FALSE}
-load("./data/ov.rda")
+#load("./data/ov.rda")
 # process data to a small subset for upload to package
 show(ov)
 rnaseq <- extract(ov, "rnaseqgene", clinical=TRUE)
@@ -468,13 +468,14 @@ sapply(se, dim)
 Adding pheno data to each pData in the list, require adding to each pData separtely (using, do.call, sapply or a for loop).  The data table was downloaded from the supplemnet of the TCGA Ov publication. 
 
 ```{r addingphenodata, eval=FALSE}
+subFile<-file.path(system.file(package="bioc2015multiomicsworkshop"),"data", "TCGA_489_UE.k4.txt")
 
-subtypes<-read.table("./data/TCGA_489_UE.k4.txt", sep="\t", row.names=1, header=TRUE, as.is=TRUE)
+subtypes<-read.table(subFile, sep="\t", row.names=1, header=TRUE, as.is=TRUE)
 
 for (i in 1:length(se)) pData(se[[i]]) <-cbind(pData(se[[i]]),subtypes=subtypes[rownames(pData(se[[i]])),2])
              
 
-save(se, file="./data/se.rda")
+#save(se, file="./data/se.rda")
 ```
 
 
