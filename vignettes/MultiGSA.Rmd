@@ -12,7 +12,7 @@ output: html_document
 
 ```{r, echo=FALSE, results="hide"}
 library(knitr)
-opts_chunk$set(error=FALSE)
+opts_chunk$set(error=FALSE,fig.path='fig')
 ```
 
 # Getting this tutorial
@@ -39,13 +39,6 @@ require(gplots)
 
 We will use the  TCGA  [TCGA data portal here](https://tcga-data.nci.nih.gov/tcga/) data we downlaoded earlier, from the firehose data [firehose_get](https://confluence.broadinstitute.org/display/GDAC/Download) pipeline but at the end of the document I have included all of the  the code to downlaod and generate the data
 
-# Other tutoral (available in MOGSA)
-Chen Meng has written some great vignettes available in the [mogsa package](http://www.bioconductor.org/packages/release/bioc/html/mogsa.html).  
-See  mogsa moCluster (find clusters tutorial) and moGSA (gene set enrichment analysis) on multi-omics data.  These are available in the devel verioson of [mogsa](http://www.bioconductor.org/packages/devel/bioc/html/mogsa.html). 
-
-```{r bbmogsa}
-browseVignettes("mogsa")
-```
 
 
 #  Load Data
@@ -81,11 +74,11 @@ se.moa<-moa(lapply(se, exprs), proc.row = "center_ssq1", w.data = "inertia", sta
 ```
 
 In this function, the input argument 
------------------------ | --------------------
+  ----------------------- | --------------------
                 proc.row | preprocessing of rows 
                 w.data   |  weight of datasets.     
                 statis   |  multiple table analysis method to be used. 
------------------------ | --------------------              
+    ----------------------- | --------------------              
 To run multiple factorial analysis (MFA), set statis=FALSE (the default setting}).
 
 # plotting
